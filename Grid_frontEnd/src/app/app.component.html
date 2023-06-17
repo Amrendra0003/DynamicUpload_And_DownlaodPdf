@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-6" style="margin-left: 620px;">
+      <button class="btn btn-primary mt-3 float-right" (click)="addPersonalDetail()"  style="margin-left: 10px;">Add</button>
+      <button class="btn btn-danger mt-3 float-right" (click)="deletePersonalDetail()">Delete</button>
+
+    </div>
+  </div>
+</div>
+
+  <div style="margin-left: 70px; margin-top: 10px;">
+  <ag-grid-angular
+    class="ag-theme-alpine"
+    style="width: 1355px; height: 700px;"
+    [gridOptions]="gridOptions"
+    (cellValueChanged)="onCellValueChanged($event)"
+  ></ag-grid-angular>
+</div>
+<ng-template #editPopup>
+  <div style="width: 800px; margin-left: 50px; margin-top: 30px; margin-bottom: 30px;">
+    <h2>{{addEdit}} Personal Details</h2>
+    <form (ngSubmit)="saveEdit(editedRowData)">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="this.editedRowData.rowData.name">
+      </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" class="form-control" id="age" name="age" [(ngModel)]="this.editedRowData.rowData.age">
+      </div>
+      <div class="form-group">
+        <label for="country">Country:</label>
+        <input type="text" class="form-control" id="country" name="country" [(ngModel)]="this.editedRowData.rowData.country">
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <input type="text" class="form-control" id="gender" name="gender" [(ngModel)]="this.editedRowData.rowData.gender">
+      </div>
+      <div class="form-group">
+        <label for="city">City:</label>
+        <input type="text" class="form-control" id="city" name="city" [(ngModel)]="this.editedRowData.rowData.city">
+      </div>
+      <div class="form-group">
+        <label for="zipcode">Zipcode:</label>
+        <input type="number" class="form-control" id="zipcode" name="zipcode" [(ngModel)]="this.editedRowData.rowData.zipcode">
+      </div>
+      <button type="submit" class="btn btn-success">Save</button>
+      
+      <button class="btn btn-primary" (click)="onClose()" style="margin-left: 10px;">Close</button>
+    </form>
+  </div>
+</ng-template>
+<ng-template #deletePopup>
+  <div>
+    <div style="margin-top: 40px;margin-bottom: 40px;">
+      <h2 style="text-align:center">Are you sure you want to delete the selected rows?</h2>
+      <div class="delete-popup-buttons">
+        <button class="btn btn-danger" (click)="deleteRow()">Delete</button>
+        <button class="btn btn-primary" (click)="hideDeletePopup()" style="margin-left: 10px;">Close</button>
+
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+
+

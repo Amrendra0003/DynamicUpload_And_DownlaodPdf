@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~/node_modules/ag-grid-community/styles/ag-grid.css";
+@import "~/node_modules/ag-grid-community/styles/ag-theme-alpine.css";
+.modal-lg {
+    max-width: 900px !important;
+  }
+  
+/* Custom styles for the delete confirmation popup */
+.delete-popup {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .delete-popup-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    max-width: 80%;
+    text-align: center;
+  }
+
+  .delete-popup-content h2 {
+    margin-top: 0;
+  }
+
+  .delete-popup-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
